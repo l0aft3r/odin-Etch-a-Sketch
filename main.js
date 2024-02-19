@@ -11,8 +11,15 @@ btn.addEventListener('click', (event) => {
     }
 });
 
+function getRandomInt(max){
+    return Math.floor(Math.random() * max);
+}
+
 function onHover(dv){
-    dv.style.backgroundColor = "rgb(0, 0, 0)"
+    dv.style.backgroundColor = `rgb(${getRandomInt(256)}, ${getRandomInt(256)}, ${getRandomInt(256)})`;
+    dv.setAttribute('opacity', parseFloat(dv.getAttribute('opacity'))+1);
+    console.log(dv.getAttribute('opacity'))
+    dv.style.opacity = dv.getAttribute('opacity')*0.1;
 };
 
 function createGrid(gridSize){
@@ -22,7 +29,8 @@ function createGrid(gridSize){
         container.appendChild(row);
         for (let j = 0; j<gridSize; j++){
             const box = document.createElement('div');
-            box.setAttribute('class', 'box')
+            box.setAttribute('class', 'box');
+            box.setAttribute('opacity', 0);
             box.addEventListener("mouseover", (event) => {
                 onHover(event.target);
             })
