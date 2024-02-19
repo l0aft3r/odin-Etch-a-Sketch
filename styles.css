@@ -1,0 +1,15 @@
+#container {
+    display: flex;
+    margin: auto;
+    min-height: 920px;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.box {
+    flex-grow: 1;
+}
